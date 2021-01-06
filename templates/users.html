@@ -1,0 +1,52 @@
+{% extends 'sidebar.html' %}
+
+{% block main%}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Users </li>
+    </ol>
+</nav>
+
+
+<div class="container">
+    <div class="jumbotron">
+        <form method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name </label>
+              <input type="text" class="form-control" name="name" aria-describedby="enter text">
+            </div>    
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Password </label>
+              <input type="password" class="form-control" name="password" aria-describedby="enter text">
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Phone </label>
+                <input type="number" class="form-control" name="phone" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Position </label>
+                <input type="text" class="form-control" name="position" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Department </label>
+                <input type="text" class="form-control" name="department" aria-describedby="emailHelp">
+              </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+
+{% endblock %}

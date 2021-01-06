@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title> Admin Page </title>
+{% endblock%}
+
+{% block content%}
+<div class="sidebar">
+  <a href="/users"><i class="fa fa-fw fa-user"></i> Users </a>
+  <a href="/"><i class="fa fa-fw fa-tasks"></i> Home </a>
+  <a href="/logout"><i class="fa fa-fw fa-tasks"></i> Logout </a>
+  <!-- <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a> -->
+</div>
+
+
+<div class="main">
+  {%block main%} {% endblock%}
+</div>
+{% endblock%}

@@ -1,0 +1,29 @@
+{% extends 'sidebar.html' %}
+
+{% block main%}
+
+
+
+
+
+<ul>
+    {% for u in users %}
+    <li>
+        <a href="/tasks/{{u.id}}">{{u.name}}</a>
+        <ul>
+            {% for t in u.tasks %}
+            <li>
+                
+                <p>{{t.name}}</p>
+                {% if u.name == session['username'] %}
+                <a href="/tasks/del/{{t.id}}"><button>done</button></a>
+                {% endif %}
+
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

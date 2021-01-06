@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title> Home Page </title>
+{% endblock%}
+
+{% block content%}
+<ul>
+    {% for t in user.tasks %}
+    <li>
+        <p>{{t.name}}  </p>
+        <a href="/tasks/del/{{t.id}}"><button>done</button></a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock%}

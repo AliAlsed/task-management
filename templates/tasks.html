@@ -1,0 +1,36 @@
+{% extends 'sidebar.html' %}
+
+{% block main%}
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Users </li>
+  </ol>
+</nav>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <form method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name </label>
+        <input type="text" class="form-control" name="name" aria-describedby="enter text">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Description </label>
+        <input type="text" class="form-control" name="desc" aria-describedby="emailHelp">
+      </div>
+      <!-- <div class="form-group">
+                <label for="exampleInputEmail1">user </label>
+                <input type="text" class="form-control" name="department" aria-describedby="emailHelp">
+              </div> -->
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

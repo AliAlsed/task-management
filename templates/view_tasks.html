@@ -1,0 +1,28 @@
+{% extends 'sidebar.html' %}
+
+{% block main%}
+
+
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>Progress</th>
+        <th>Time left</th>
+        <th>actions</th>
+        <th>user ID</th>
+    </tr>
+    {% for t in tasks %}
+    <tr>
+        <td>{{t.name}}</td>
+        <td>{{t.progress}}</td>
+        <td>{{(t.due_date - t.created_date).days}} days left</td>
+        <td>
+            <a href="/tasks/del/{{t.id}}"><button>del</button></a>
+            <a href="/tasks/edit/{{t.id}}"><button>edit</button></a>
+        </td>
+        <td># {{t.user_id}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

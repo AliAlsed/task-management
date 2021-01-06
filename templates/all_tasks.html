@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title> Home Page </title>
+<title> Tasks Page </title>
 {% endblock%}
 
 {% block content%}
 
-<a href="/logout"> Logout </a>
-<a href="/tasks/view"> All tasks </a>
-
 <ul>
-    {% for t in user.tasks %}
+    {% for t in tasks %}
     <li>
-        <p>{{t.name}} </p>
+        <p>{{t.name}}</p>
+        <p>{{t.progress}}</p>
         <p>{{(t.due_date - t.created_date).days}} days left</p>
-        <!-- <a href="/tasks/del/{{t.id}}"><button>del</button></a> -->
-        <a href="/tasks/edit/{{t.id}}"><button>edit</button></a>
         {% for c in t.comments %}
         <p>{{c.name}}</p>
+        {% if t.user_id==id %}
         <a href="/comments/del/{{c.id}}"><button>del</button></a>
+        {% endif %}
         {% endfor %}
         <form action="/comments/{{t.id}}" method="POST">
             <input type="text" name="name">

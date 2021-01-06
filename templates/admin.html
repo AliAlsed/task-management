@@ -3,22 +3,28 @@
 {% block main%}
 
 
-
-
-
 <ul>
     {% for u in users %}
     <li>
-        <a href="/tasks/{{u.id}}">{{u.name}}</a>
+        <p>{{u.name}}</p>
+        <p>{{u.id}}</p>
+        <a href="/tasks/{{u.id}}"><button>add task</button></a>
         <ul>
             {% for t in u.tasks %}
             <li>
-                
                 <p>{{t.name}}</p>
-                {% if u.name == session['username'] %}
-                <a href="/tasks/del/{{t.id}}"><button>done</button></a>
-                {% endif %}
-
+                <p>{{t.progress}}</p>
+                <p>{{(t.due_date - t.created_date).days}} days left</p>
+                <a href="/tasks/del/{{t.id}}"><button>del</button></a>
+                <a href="/tasks/edit/{{t.id}}"><button>edit</button></a>
+                {% for c in t.comments %}
+                <p>{{c.name}}</p>
+                <a href="/comments/del/{{c.id}}"><button>del</button></a>
+                {% endfor %}
+                <form action="/comments/{{t.id}}" method="POST">
+                    <input type="text" name="name">
+                    <input type="submit">
+                </form>
             </li>
             {% endfor %}
         </ul>
